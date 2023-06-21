@@ -10,7 +10,6 @@ A inflação não está sendo considerada.
 Essa simulação deixa claro que consistência, especialmente no inicio onde os aportes são uma parcela significativa do total, é a chave para geração de renda passiva.
 Ao investir com disciplina, flutuações de curto prazo são mitigadas e se percebe os benefícios do crescimento composto.
 '''
-
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -92,7 +91,7 @@ def tempo_para_renda_desejada(valor_inicial, aporte_mensal, rendimento_anual, di
     meses_restantes = meses % 12
     
     print('Saldo: {:,.2f}'.format(saldo))
-    print('Em um investimento de 100% do CDI seu saldo seria: {:,.2f}'.format(comparar_ao_cdi(valor_inicial, aporte_mensal, anos, meses_restantes)))
+    print('Investindo em 100% do CDI seria: {:,.2f}'.format(comparar_ao_cdi(valor_inicial, aporte_mensal, anos, meses_restantes)))
     print('Uma diferença de: {:,.2f}'.format(saldo - comparar_ao_cdi(valor_inicial, aporte_mensal, anos, meses_restantes)))
     print(f"Levará aproximadamente {anos} anos e {meses_restantes} meses para atingir a renda passiva desejada de R${renda_passiva_desejada:,.2f} mensais.")
     construcao_grafico(lista_aportado, lista_redimento, lista_renda_passiva)
@@ -121,7 +120,7 @@ def renda_mensal_estimada_apos_anos(valor_inicial, aporte_mensal, rendimento_anu
         lista_renda_passiva.append(renda_passiva_mensal)
 
     print('Saldo: {:,.2f}'.format(saldo))
-    print('Em um investimento de 100% do CDI seu saldo seria: {:,.2f}'.format(comparar_ao_cdi(valor_inicial, aporte_mensal, anos, meses)))
+    print('Investindo em 100% do CDI seria: {:,.2f}'.format(comparar_ao_cdi(valor_inicial, aporte_mensal, anos, meses)))
     print('Uma diferença de: {:,.2f}'.format(saldo - comparar_ao_cdi(valor_inicial, aporte_mensal, anos, meses)))
     print(f"A renda mensal estimada após {anos} anos e {meses} meses é de aproximadamente R${renda_passiva_mensal:,.2f}")
     construcao_grafico(lista_aportado, lista_redimento, lista_renda_passiva)
@@ -137,8 +136,8 @@ valor_inicial = float(15000)
 aporte_mensal = float(1000)
 rendimento_anual = float(0.10)
 dividend_yield_anual = float(0.069)
-renda_passiva_desejada = float(1320)
-anos_informados, meses_informados = int(0), int(0)
+renda_passiva_desejada = float(0)
+anos_informados, meses_informados = int(10), int(0)
 #100% do CDI está em 0.1365
 TAXA_CDI = float(0.1365)
 INTERVALO_COLUNAS = int(12)
