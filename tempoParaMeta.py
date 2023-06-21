@@ -67,10 +67,11 @@ def tempo_para_renda_desejada(valor_inicial, aporte_mensal, rendimento_anual, di
             lista_renda_passiva.append(renda_passiva_mensal)
 
         meses += 1
-
-    lista_aportado.append(soma_valor_bolso)
-    lista_redimento.append(saldo - soma_valor_bolso)
-    lista_renda_passiva.append(renda_passiva_mensal)
+    
+    if soma_valor_bolso != lista_aportado[-1]:
+        lista_aportado.append(soma_valor_bolso)
+        lista_redimento.append(saldo - soma_valor_bolso)
+        lista_renda_passiva.append(renda_passiva_mensal)
 
     anos = meses // 12
     meses_restantes = meses % 12
@@ -97,9 +98,11 @@ def renda_mensal_estimada_apos_anos(valor_inicial, aporte_mensal, rendimento_anu
             lista_redimento.append(saldo - soma_valor_bolso)
             lista_renda_passiva.append(renda_passiva_mensal)
 
-    lista_aportado.append(soma_valor_bolso)
-    lista_redimento.append(saldo - soma_valor_bolso)
-    lista_renda_passiva.append(renda_passiva_mensal)
+    if soma_valor_bolso != lista_aportado[-1]:
+        lista_aportado.append(soma_valor_bolso)
+        lista_redimento.append(saldo - soma_valor_bolso)
+        lista_renda_passiva.append(renda_passiva_mensal)
+
     print('Saldo: {:,.2f}'.format(saldo))
     print(f"A renda mensal estimada após {anos} anos e {meses} meses é de aproximadamente R${renda_passiva_mensal:,.2f}")
     construcao_grafico(lista_aportado, lista_redimento, lista_renda_passiva)
@@ -111,17 +114,15 @@ def renda_mensal_estimada_apos_anos(valor_inicial, aporte_mensal, rendimento_anu
 #dividend_yield_anual = float(input("Informe o dividend yield anual (em decimal): "))
 #renda_passiva_desejada = float(input("Informe a renda passiva desejada: "))
 
-valor_inicial = float(500)
-aporte_mensal = float(500)
+valor_inicial = float(15000)
+aporte_mensal = float(1100)
 rendimento_anual = float(0.105)
 dividend_yield_anual = float(0.069)
 renda_passiva_desejada = float(1320)
-anos_informados, meses_informados = int(2), int(9)
+anos_informados, meses_informados = int(0), int(0)
 INTERVALO_COLUNAS = int(12)
 
 if anos_informados == 0 and meses_informados == 0:
     tempo_para_renda_desejada(valor_inicial, aporte_mensal, rendimento_anual, dividend_yield_anual, renda_passiva_desejada, INTERVALO_COLUNAS)
 else:
     renda_mensal_estimada_apos_anos(valor_inicial, aporte_mensal, rendimento_anual, dividend_yield_anual, anos_informados, meses_informados, INTERVALO_COLUNAS)
-
-
