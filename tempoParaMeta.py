@@ -49,7 +49,7 @@ def construcao_grafico(lista_aportado, lista_redimento, lista_renda_passiva):
 
     plt.show() 
 
-def comparar_ao_cdi(valor_inicial, aporte_mensal, anos, meses):
+def comparar_ao_cdi(saldo, valor_inicial, aporte_mensal, anos, meses):
 
     cdi_mensal = pow((1+TAXA_CDI), (1/12))
     saldo_cdi =  valor_inicial*cdi_mensal
@@ -60,7 +60,10 @@ def comparar_ao_cdi(valor_inicial, aporte_mensal, anos, meses):
         saldo_cdi = (saldo_cdi + aporte_mensal)*cdi_mensal
         tempo -= 1
 
-    return saldo_cdi
+
+    print('Saldo: {:,.2f}'.format(saldo))
+    print('Investindo em 100% do CDI: {:,.2f}'.format(saldo_cdi))
+    print('Uma diferença de: {:,.2f}'.format(saldo - saldo_cdi))
 
 def tempo_para_renda_desejada(valor_inicial, aporte_mensal, rendimento_anual, dividend_yield_anual, renda_passiva_desejada):
     
@@ -90,9 +93,7 @@ def tempo_para_renda_desejada(valor_inicial, aporte_mensal, rendimento_anual, di
     anos = meses // 12
     meses_restantes = meses % 12
     
-    print('Saldo: {:,.2f}'.format(saldo))
-    print('Investindo em 100% do CDI: {:,.2f}'.format(comparar_ao_cdi(valor_inicial, aporte_mensal, anos, meses_restantes)))
-    print('Uma diferença de: {:,.2f}'.format(saldo - comparar_ao_cdi(valor_inicial, aporte_mensal, anos, meses_restantes)))
+    comparar_ao_cdi(saldo, valor_inicial, aporte_mensal, anos, meses_restantes)
     print(f"Levará aproximadamente {anos} anos e {meses_restantes} meses para atingir a renda passiva desejada de R${renda_passiva_desejada:,.2f} mensais.")
     construcao_grafico(lista_aportado, lista_redimento, lista_renda_passiva)
 
@@ -119,9 +120,7 @@ def renda_mensal_estimada_apos_anos(valor_inicial, aporte_mensal, rendimento_anu
         lista_redimento.append(saldo - soma_valor_bolso)
         lista_renda_passiva.append(renda_passiva_mensal)
 
-    print('Saldo: {:,.2f}'.format(saldo))
-    print('Investindo em 100% do CDI: {:,.2f}'.format(comparar_ao_cdi(valor_inicial, aporte_mensal, anos, meses)))
-    print('Uma diferença de: {:,.2f}'.format(saldo - comparar_ao_cdi(valor_inicial, aporte_mensal, anos, meses)))
+    comparar_ao_cdi(saldo, valor_inicial, aporte_mensal, anos, meses)
     print(f"A renda mensal estimada após {anos} anos e {meses} meses é de aproximadamente R${renda_passiva_mensal:,.2f}")
     construcao_grafico(lista_aportado, lista_redimento, lista_renda_passiva)
 
@@ -153,9 +152,7 @@ def tempo_para_saldo_desejado(valor_inicial, aporte_mensal, rendimento_anual, di
     anos = meses // 12
     meses_restantes = meses % 12
     
-    print('Saldo: {:,.2f}'.format(saldo))
-    print('Investindo em 100% do CDI: {:,.2f}'.format(comparar_ao_cdi(valor_inicial, aporte_mensal, anos, meses_restantes)))
-    print('Uma diferença de: {:,.2f}'.format(saldo - comparar_ao_cdi(valor_inicial, aporte_mensal, anos, meses_restantes)))
+    comparar_ao_cdi(saldo, valor_inicial, aporte_mensal, anos, meses_restantes)
     print(f"Levará aproximadamente {anos} anos e {meses_restantes} meses para atingir a renda passiva desejada de R${renda_passiva_mensal:,.2f} mensais.")
     construcao_grafico(lista_aportado, lista_redimento, lista_renda_passiva)
 
@@ -166,15 +163,13 @@ def tempo_para_saldo_desejado(valor_inicial, aporte_mensal, rendimento_anual, di
 #dividend_yield_anual = float(input("Informe o dividend yield anual (em decimal): "))
 #renda_passiva_desejada = float(input("Informe a renda passiva desejada: "))
 
-valor_inicial = float(20000)
-#                                                        Impostos e consumo
-aporte_mensal = float(1262.00 + 120.00 + 3741.43 + 500 - 1000)
+valor_inicial = float(23000)
+aporte_mensal = float(1262.00 + 120.00 + 3741.43 + 500 - 1023.43)
 rendimento_anual = float(0.07)
 dividend_yield_anual = float(0.06)
 renda_passiva_desejada = float(1320)
 anos_informados, meses_informados = int(0), int(0)
 saldo_desejado = float(0)
-#100% do CDI está em 0.1315
 TAXA_CDI = float(0.1315)
 INTERVALO_COLUNAS = int(12)
 
