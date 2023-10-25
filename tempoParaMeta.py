@@ -170,10 +170,9 @@ def renda_mensal_estimada_apos_anos(
     )
     construcao_grafico(lista_aportado, lista_redimento, lista_renda_passiva)
 
-
 def tempo_para_saldo_desejado(
     valor_inicial, aporte_mensal, rendimento_anual, dividend_yield_anual, saldo_desejado
-):
+):    
     saldo = valor_inicial
     meses = 0
     renda_passiva_mensal = 0
@@ -220,9 +219,9 @@ def tempo_para_saldo_desejado(
 # dividend_yield_anual = float(input("Informe o dividend yield anual (em decimal): "))
 # renda_passiva_desejada = float(input("Informe a renda passiva desejada: "))
 
-valor_inicial = float(23000)
-aporte_mensal = float(1262.00 + 120.00 + 3741.43 + 500 - 1023.43)
-rendimento_anual = float(0.07)
+valor_inicial = float(25000)           
+aporte_mensal = float(1262.00 + 120.00 + 3850.85 + 500 - 128.36 - 108.77 - 495.72)
+rendimento_anual = float(0.10)
 dividend_yield_anual = float(0.06)
 renda_passiva_desejada = float(1320)
 anos_informados, meses_informados = int(0), int(0)
