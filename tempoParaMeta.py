@@ -220,9 +220,9 @@ def tempo_para_saldo_desejado(
 # renda_passiva_desejada = float(input("Informe a renda passiva desejada: "))
 
 valor_inicial = float(31000)     
-#                  LG Salario +  Aux  + Subsidio + VA  -  IRRF  -  INSS      
-aporte_mensal = float(1262.00 + 120.00 + 3850.85 + 500 - 128.36 - 435.04 - 169.45)
-rendimento_anual = float(0.09)
+#                  LG Salario +  Aux  + Subsidio + VA  -  IRRF  -  INSS  - Gastos    
+#aporte_mensal = float(1262.00 + 120.00 + 3850.85 + 500 - 128.36 - 435.04 - 669.45)
+rendimento_anual = float(0.08)
 dividend_yield_anual = float(0.06)
 renda_passiva_desejada = float(1320)
 anos_informados, meses_informados = int(0), int(0)
