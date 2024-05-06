@@ -219,12 +219,12 @@ def tempo_para_saldo_desejado(
 # dividend_yield_anual = float(input("Informe o dividend yield anual (em decimal): "))
 # renda_passiva_desejada = float(input("Informe a renda passiva desejada: "))
 
-valor_inicial = float(31000)     
-#                  LG Salario +  Aux  + Subsidio + VA  -  IRRF  -  INSS  - Gastos    
-#aporte_mensal = float(1262.00 + 120.00 + 3850.85 + 500 - 128.36 - 435.04 - 669.45)
+valor_inicial = float(80000)     
+#                         LG  +   SEAD  - Gastos    
+aporte_mensal = float(1382.00 + 4700.63 - 682.63)
 rendimento_anual = float(0.08)
 dividend_yield_anual = float(0.06)
-renda_passiva_desejada = float(1320)
+renda_passiva_desejada = float(1329)
 anos_informados, meses_informados = int(0), int(0)
 saldo_desejado = float(0)
 TAXA_CDI = float(0.13)
