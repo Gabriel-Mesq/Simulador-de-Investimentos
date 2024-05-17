@@ -221,7 +221,7 @@ def tempo_para_saldo_desejado(
 
 valor_inicial = float(80000)     
 #                         LG  +   SEAD  - Gastos    
-aporte_mensal = float(1382.00 + 4700.63 - 682.63)
+aporte_mensal = float(1382.00 + 4900.63 - 682.63)
 rendimento_anual = float(0.08)
 dividend_yield_anual = float(0.06)
 renda_passiva_desejada = float(1329)
